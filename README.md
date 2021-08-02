@@ -43,13 +43,15 @@ desired_position = 500
 motor.set_desired_position(desired_position)
 time.sleep(3)
 ```
+![StepperMotor](StepperMotor.gif)
+
 If you need to convert position values into revolutions or centimeters (or any other unit you need) in the case of linear gears, you can use the mapping_value variable and set a specific scaling factor in the constructor by
 ```
 motor = stepper_motor(mapping_value=scalingfactor)
 ```
 
 To test the functionality of the Stepper class, run the program **```ExampleUsage.py``**. 
-1. To see what arguments you can pass call:
+To see what arguments you can pass call:
 ```
 python3 ExampleUsage.py -h 
 ```
