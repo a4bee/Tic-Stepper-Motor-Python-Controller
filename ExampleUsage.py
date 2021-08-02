@@ -4,12 +4,10 @@
 ## Company: A4BEE                       ##
 ##########################################
 
-from StepperMotor import stepper_motor
-import argparse
-import time
 
 def main():
     from StepperMotor import stepper_motor
+    import argparse
 
     ap = argparse.ArgumentParser()
     ap.add_argument("-mv", "--mapping_value", default=1, required=False,
