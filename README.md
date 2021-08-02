@@ -35,6 +35,7 @@ The repository contains a tic stepper motor python controller class. It has been
 The simplest possible use of the **StepperMotor** class to move the motor to a given position (in this example 500) looks as follows:
 ```python
 from StepperMotor import stepper_motor
+import time
 
 motor = stepper_motor()
 time.sleep(1)
