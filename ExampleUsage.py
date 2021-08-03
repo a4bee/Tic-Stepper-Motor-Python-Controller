@@ -9,6 +9,7 @@ def main():
     from StepperMotor import stepper_motor
     import argparse
     import logging
+    logging.basicConfig(level=logging.INFO)
 
     ap = argparse.ArgumentParser()
     ap.add_argument("-mv", "--mapping_value", default=1, required=False,
