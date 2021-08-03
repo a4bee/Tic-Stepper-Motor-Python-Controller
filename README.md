@@ -1,6 +1,6 @@
 # Tic Stepper Motor Python Controller
 ## Overview
-The repository contains a tic stepper motor python controller class. It has been implemented to use [**ticcmd** ](https://www.pololu.com/docs/0J71/8) commands to control a stepper motor in an easy and convenient way using a python class. The algorithm provides noise-proff LED detection, error calculation basen on detection and camera properties, and also controls calculations for each coordinate using an implemented PID controller.
+The repository contains a tic stepper motor python controller class. It has been implemented to use [**ticcmd** ](https://www.pololu.com/docs/0J71/8) commands to control a stepper motor in an easy and convenient way using a python class.
 
 ## Preparatory Steps
 1. Clone repository
