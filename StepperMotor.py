@@ -9,7 +9,6 @@ import yaml
 import time
 from threading import Thread
 import logging
-logging.basicConfig(level=logging.INFO)
 
 class stepper_motor:
     def __init__(self, mapping_value = 1):
