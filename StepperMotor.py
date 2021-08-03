@@ -16,7 +16,6 @@ class stepper_motor:
         self.status = self.get_status()
         self.current_position = self.get_current_position()
         print("Current position {}.".format(int(self.current_position)))
-        # self.desired_position = int(interp(self.current_position,[0,1000],[0,6250]))
         self.desired_position = int(self.current_position*self.mapping_value)
         
         print("Desired position {}.".format(int(self.desired_position/mapping_value)))

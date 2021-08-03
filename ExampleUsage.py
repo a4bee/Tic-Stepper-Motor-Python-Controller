@@ -1,6 +1,6 @@
 ##########################################
 ## Author: Jakub Tomaszewski            ##
-## Example Stepper motor Manual Control ##
+## Stepper motor Manual Control Example ##
 ## Company: A4BEE                       ##
 ##########################################
 
