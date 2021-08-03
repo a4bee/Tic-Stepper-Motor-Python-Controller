@@ -2,6 +2,9 @@
 ## Overview
 The repository contains a tic stepper motor python controller class. It has been implemented to use [**ticcmd** ](https://www.pololu.com/docs/0J71/8) commands to control a stepper motor in an easy and convenient way using a python class. 
 
+## Requirements
+- install [tic](https://www.pololu.com/docs/0J71/3.2) software
+
 ## Preparatory Steps
 1. Clone repository
 2. copy the StepperMotor.py to the folder where you intend to create the stepper motor control software
@@ -84,33 +87,31 @@ python3 ExampleUsage.py -mv 6.25 -ss 500 -cl 800 -ms 700000 -ma 90000 -md 90000
 ```
 You should see: 
 ```
-Current position 80.
-Desired position 80.
-Mapping value:  6.25
-Max speed:  6000000
-Starting speed:  0
-Max deceleration:  80000
-Max acceleration:  80000
-Current limit 400 mA
+INFO:root: Current position 0
+INFO:root: Desired position 0
+INFO:root: Mapping value: 6.25
+INFO:root: Max speed: 6000000
+INFO:root: Starting speed: 0
+INFO:root: Max deceleration: 80000
+INFO:root: Max acceleration: 80000
+INFO:root: Current limit: 400 mA 
 
 
+INFO:root: Starting speed after changes: 500
+INFO:root: Current limit after changes 800 mA
+INFO:root: Max speed after changes: 700000
+INFO:root: Max acceleration after changes: 90000
+INFO:root: Max deceleration after changes: 90000
+INFO:root:
 
-Starting speed after changes:  500
-Current limit after changes 800 mA
-Max speed after changes:  700000
-Max acceleration after changes:  90000
-Max deceleration after changes:  90000
-
-
-command could be:
-Float desired position, or
-home - to make home sequence, or
-d - to degenerize the motor, or
-e - to energize the engine, or
-r - to reset the controller
-status -  to print the status
-position -  to print the current position of the motor
-
+command could be: 
+    Float desired position, or 
+    home - to make home sequence, or 
+    d - to degenerize the motor, or 
+    e - to energize the engine, or 
+    r - to reset the controller 
+    status -  to print the status 
+    position -  to print the current position of the motor 
 
 New command: 
 ```

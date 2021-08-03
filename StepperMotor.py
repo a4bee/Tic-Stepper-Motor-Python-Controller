@@ -8,17 +8,19 @@ import subprocess
 import yaml
 import time
 from threading import Thread
-
+import logging
+# logging.getLogger().setLevel(logging.INFO)
+logging.basicConfig(level=logging.INFO)
 
 class stepper_motor:
     def __init__(self, mapping_value = 1):
         self.mapping_value = mapping_value
         self.status = self.get_status()
         self.current_position = self.get_current_position()
-        print("Current position {}.".format(int(self.current_position)))
+        logging.info(f" Current position {int(self.current_position)}")
         self.desired_position = int(self.current_position*self.mapping_value)
         
-        print("Desired position {}.".format(int(self.desired_position/mapping_value)))
+        logging.info(f" Desired position {int(self.desired_position/mapping_value)}")
         self.last_desired_position = self.current_position - 1
         self.max_speed = self.status['Max speed']
         self.starting_speed = self.status['Starting speed']
@@ -26,13 +28,12 @@ class stepper_motor:
         self.max_acceleration = self.status['Max acceleration']
         self.current_limit = self.status['Current limit']
 
-        print("Mapping value: ", self.mapping_value)
-        print("Max speed: ", self.max_speed) 
-        print("Starting speed: ", self.starting_speed)
-        print("Max deceleration: ", self.max_deceleration)
-        print("Max acceleration: ", self.max_acceleration)
-        print("Current limit", self.current_limit)
-        print("\n\n")
+        logging.info(f" Mapping value: {self.mapping_value}") 
+        logging.info(f" Max speed: {self.max_speed}")
+        logging.info(f" Starting speed: {self.starting_speed}")
+        logging.info(f" Max deceleration: {self.max_deceleration}")
+        logging.info(f" Max acceleration: {self.max_acceleration}")
+        logging.info(f" Current limit: {self.current_limit} \n\n")
 
         self.move_th = Thread(target=self.__move, daemon=True)
         self.move_th.start()
@@ -100,35 +101,35 @@ class stepper_motor:
         self.max_speed = max_speed
         self.__ticcmd('--max-speed', str(self.max_speed))
         self.status = self.get_status()
-        print("Max speed after changes: ", self.status['Max speed']) 
+        logging.info(f" Max speed after changes: {self.status['Max speed']}") 
          
     # Set new starting speed
     def set_starting_speed(self, starting_speed):
         self.starting_speed = starting_speed
         self.__ticcmd('--starting-speed', str(self.starting_speed))
         self.status = self.get_status()
-        print("Starting speed after changes: ", self.status['Starting speed'])
+        logging.info(f" Starting speed after changes: {self.status['Starting speed']}")
 
     # Set new max acceleration
     def set_max_acceleration(self, max_acceleration):
         self.max_acceleration = max_acceleration
         self.__ticcmd('--max-accel', str(self.max_acceleration))
         self.status = self.get_status()
-        print("Max acceleration after changes: ", self.status['Max acceleration'])
+        logging.info(f" Max acceleration after changes: {self.status['Max acceleration']}")
 
     # Set new max deceleration
     def set_max_deceleration(self, max_decelaration):   
         self.max_deceleration = max_decelaration
         self.__ticcmd('--max-decel', str(self.max_deceleration))
         self.status = self.get_status()
-        print("Max deceleration after changes: ", self.status['Max deceleration'])
+        logging.info(f" Max deceleration after changes: {self.status['Max deceleration']}")
 
     # Set new current limit 
     def set_current_limit(self, current_limit):
         self.cuurent_limit = current_limit
         self.__ticcmd('--current', str(current_limit))
         self.status = self.get_status()
-        print("Current limit after changes", self.status['Current limit'])
+        logging.info(f" Current limit after changes {self.status['Current limit']}")
 
             
 

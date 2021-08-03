@@ -8,6 +8,7 @@
 def main():
     from StepperMotor import stepper_motor
     import argparse
+    import logging
 
     ap = argparse.ArgumentParser()
     ap.add_argument("-mv", "--mapping_value", default=1, required=False,
@@ -56,15 +57,16 @@ def main():
     # The default max acceleration is equal 80000 
     stepper_motor.set_max_deceleration(max_deceleration)  
     
-    print("\n\ncommand could be:")
-    print("Float desired position, or")
-    print("home - to make home sequence, or")
-    print("d - to degenerize the motor, or")
-    print("e - to energize the engine, or")
-    print("r - to reset the controller")
-    print("status -  to print the status")
-    print("position -  to print the current position of the motor")
-    print("\n")
+    help = """\n\ncommand could be: 
+    Float desired position, or 
+    home - to make home sequence, or 
+    d - to degenerize the motor, or 
+    e - to energize the engine, or 
+    r - to reset the controller 
+    status -  to print the status 
+    position -  to print the current position of the motor \n"""
+
+    logging.info(help)
 
     while True:
         command = input("New command: ")
@@ -77,9 +79,9 @@ def main():
         elif (command == "r"):
             stepper_motor.reset()
         elif (command == "status"):
-            print("Status: ", stepper_motor.get_status())
+            logging.info(f" Status: {stepper_motor.get_status()}")
         elif (command == "position"):
-            print("The current position of the motor is equal: ", stepper_motor.get_current_position())
+            logging.info(f" The current position of the motor is equal: {stepper_motor.get_current_position()}")
         else:
             stepper_motor.set_desired_position(int(command))
 
